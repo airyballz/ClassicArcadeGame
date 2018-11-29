@@ -248,7 +248,7 @@
         this.score += this.valSafeCross;
         this.animateCss( "tada", 1 );
 
-        if (this.score % 2 == 0 ) {
+        if (this.score % 3 == 0 ) {
             allEnemies.push( new Enemy( ( Math.floor(Math.random() * 4) * 83 ) + 60 ) )
         }   
     }
