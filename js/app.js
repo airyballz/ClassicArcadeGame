@@ -206,14 +206,14 @@
         ctx.fillText( "SCORE", 50, 575);
         ctx.fillText( this.score , 45, 600);
 
-        ctx.fillText( "LIFES", 50 + 101, 575);
-        ctx.fillText( this.totLifes, 45 + 101, 600); 
+        ctx.fillText( "LIFES", 50 + 101 * 2, 575);
+        ctx.fillText( this.totLifes, 45 + 101 * 2, 600); 
 
-        ctx.fillText( "GEMS", 50 + 101 * 2, 575);
-        ctx.fillText( this.totGem, 45 + 101 * 2, 600);
+        ctx.fillText( "GEMS", 50 + 101 * 3, 575);
+        ctx.fillText( this.totGem, 45 + 101 * 3, 600);
 
-        ctx.fillText( "RAFTS", 50 + 101 * 3, 575);
-        ctx.fillText( this.totSafeCross, 45 + 101 * 3, 600);                 
+        ctx.fillText( "RAFTS", 50 + 101 * 4, 575);
+        ctx.fillText( this.totSafeCross, 45 + 101 * 4, 600);                  
     }
 
     // Calculates current score
