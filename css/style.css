@@ -26,7 +26,7 @@ canvas {
 }
 
 #game-over-overlay {
-	top: 50px;
+    top: 50px;
     background-color: black;
     opacity: .5;
 }
