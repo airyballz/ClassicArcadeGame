@@ -176,7 +176,7 @@
     Desc: Keeps track of game progress and score
     Methods: render(), update(), gem(), goal(), 
             death(), animateCss(), gameOver(), 
-            resetSprites(), newGame()  
+            resetSprites()  
 \-----------------------------------------------------*/
     var GameBoard = function()
     {
@@ -269,13 +269,6 @@
         ctx.canvas.classList.add( css );
     }    
 
-    // What happens when the game is over
-    GameBoard.prototype.gameOver = function() {
-        document.getElementById('game-over').style.display = 'block';
-        document.getElementById('game-over-overlay').style.display = 'block';
-        this.isGameOver = true;
-    }
-
     // Reset Sprites to default
     GameBoard.prototype.resetSprites = function() {
         player.reset();
@@ -283,14 +276,11 @@
         gem.randomize();          
     }
 
-    // Create New Gameboard
-    GameBoard.prototype.newGame = function()
-    {
-        document.getElementById('game-over').style.display = 'none';
-        document.getElementById('game-over-overlay').style.display = 'none';
-        ctx.canvas.className = "";
-        
-        initGameBoard();               
+    // What happens when the game is over
+    GameBoard.prototype.gameOver = function() {
+        document.getElementById('game-over').style.display = 'block';
+        document.getElementById('game-over-overlay').style.display = 'block';
+        this.isGameOver = true;
     }
 
 /*-----------------------------------------------------\ 
@@ -337,5 +327,7 @@
     Event Listener
 \-----------------------------------------------------*/
     document.getElementById('play-again').addEventListener('click', function() {
-        gameboard.newGame();
-    }); 
+        document.getElementById('game-over').style.display = 'none';
+        document.getElementById('game-over-overlay').style.display = 'none';
+        ctx.canvas.className = "";
+    });        
