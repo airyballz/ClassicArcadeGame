@@ -335,4 +335,5 @@
         document.getElementById('game-over').style.display = 'none';
         document.getElementById('game-over-overlay').style.display = 'none';
         ctx.canvas.className = "";
+        initGameBoard();
     });        
