@@ -2,12 +2,22 @@ body {
     text-align: center;
 }
 
+canvas {
+    display: block;
+    margin: 0px auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
 #game-over, #game-over-overlay {
-    margin: auto;
+    margin: 0px auto;
     width: 505px;
     height: 555px;
     position: absolute;
-    top: -267px;
+    top: 50px;
     left: 0;
     right: 0;
     bottom: 0;
