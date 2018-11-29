@@ -232,18 +232,14 @@
         }
 
         // Subtract dt from timer if timer is set
-        if ( this.timer > 0 ) this.timer -= dt;
-
-        // Increase enemy count when score is a multiple of 3
-        if ( this.score % 3 == 0 ) {
-            allEnemies.push( new Enemy( ( Math.floor(Math.random() * 4) * 83 ) + 60 ) )
-        }                
+        if ( this.timer > 0 ) this.timer -= dt;             
     }
 
     // Player collected a gem;
     GameBoard.prototype.gem = function() {
         this.totGem += 1
         this.score += this.valGem;
+        this.increaseDiff();
         gem.randomize();
     }
 
@@ -251,13 +247,21 @@
     GameBoard.prototype.goal = function() {
         this.totSafeCross += 1
         this.score += this.valSafeCross;
-        this.animateCss( "tada", 1 );   
+        this.animateCss( "tada", 1 );
+        this.increaseDiff();  
     }
 
     // Player killed 
     GameBoard.prototype.death = function() {
         this.totLifes -= 1;       
         this.animateCss( "shake", .5 );
+    }
+
+    // Increase enemy count when score is a multiple of 3
+    GameBoard.prototype.increaseDiff = function() {
+        if ( this.score % 3 == 0 && this.score > 0 ) {
+            allEnemies.push( new Enemy( ( Math.floor(Math.random() * 4) * 83 ) + 60 ) )
+        }   
     }
 
     // Adds animation css to gameboard
@@ -287,7 +291,7 @@
 /*-----------------------------------------------------\ 
     Instantiating objects
 \-----------------------------------------------------*/
-    var player, gem, raft, gameboard;
+    var player, gem, raft, allEnemies, gameboard;
 
     function initGameBoard()
     {
