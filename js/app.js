@@ -213,7 +213,7 @@
         ctx.fillText( this.totGem, 45 + 101 * 3, 600);
 
         ctx.fillText( "RAFTS", 50 + 101 * 4, 575);
-        ctx.fillText( this.totSafeCross, 45 + 101 * 4, 600);                  
+        ctx.fillText( this.totSafeCross, 45 + 101 * 4, 600);                 
     }
 
     // Calculates current score
@@ -248,9 +248,9 @@
         this.score += this.valSafeCross;
         this.animateCss( "tada", 1 );
 
-        if (this.score % 3 == 0 ) {
+        if ( this.score % 3 == 0 ) {
             allEnemies.push( new Enemy( ( Math.floor(Math.random() * 4) * 83 ) + 60 ) )
-        }   
+        }        
     }
 
     // Player killed 
@@ -286,37 +286,35 @@
     // Create New Gameboard
     GameBoard.prototype.newGame = function()
     {
-        this.totGem = 0;
-        this.totSafeCross = 0;
-        this.totLifes = 5;
-        this.score = 0;
-        this.isGameOver = false;
-        this.pause = false;
-        this.timer = 0;
-        this.resetSprites();
-
         document.getElementById('game-over').style.display = 'none';
         document.getElementById('game-over-overlay').style.display = 'none';
-        ctx.canvas.className = "";                
+        ctx.canvas.className = "";
+        
+        initGameBoard();               
     }
 
 /*-----------------------------------------------------\ 
-    Initiate New objects
+    Instantiating objects
 \-----------------------------------------------------*/
-    var player = new Player();
-    var gem = new Gem();
-    var raft = new Raft();
-    var gameboard = new GameBoard();
+    var player, gem, raft, gameboard;
 
-    // array of Enemy Objects
-    var allEnemies = [], 
-        enemyRow = [60, 143, 226, 309];
+    function initGameBoard()
+    {
+        var enemyRow = [60, 143, 226, 309];
 
-    // Loop through enemy start rows and push new obj to allEnemies 
-    for (tot = 0; tot < enemyRow.length; tot++){
-        allEnemies.push( new Enemy( enemyRow[tot] ) );
+        player = new Player();
+        gem = new Gem();
+        raft = new Raft();
+        gameboard = new GameBoard();
+        allEnemies = [];
+
+        // Loop through enemy start rows and push new obj to allEnemies 
+        for (tot = 0; tot < enemyRow.length; tot++){
+            allEnemies.push( new Enemy( enemyRow[tot] ) );
+        }    
     }
 
+    initGameBoard();
 /*-----------------------------------------------------\ 
     This listens for key presses and sends the 
     keys to your Player.handleInput() method. 
@@ -340,4 +338,4 @@
 \-----------------------------------------------------*/
     document.getElementById('play-again').addEventListener('click', function() {
         gameboard.newGame();
-    });        
+    }); 
