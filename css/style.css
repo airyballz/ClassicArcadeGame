@@ -17,7 +17,6 @@ canvas {
     width: 505px;
     height: 555px;
     position: absolute;
-    top: 50px;
     left: 0;
     right: 0;
     bottom: 0;
@@ -27,12 +26,13 @@ canvas {
 }
 
 #game-over-overlay {
+	top: 50px;
     background-color: black;
     opacity: .5;
 }
 
 #game-over {
-    height: 200px;
+    top: 200px;
     text-align: center;
     color: white;
 }
