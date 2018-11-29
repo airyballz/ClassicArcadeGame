@@ -297,7 +297,7 @@
     }
 
 /*-----------------------------------------------------\ 
-    Instantiating objects
+    Initiate New objects
 \-----------------------------------------------------*/
     var player = new Player();
     var gem = new Gem();
