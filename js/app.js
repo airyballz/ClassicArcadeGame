@@ -232,7 +232,12 @@
         }
 
         // Subtract dt from timer if timer is set
-        if ( this.timer > 0 ) this.timer -= dt;   
+        if ( this.timer > 0 ) this.timer -= dt;
+
+        // Increase enemy count when score is a multiple of 3
+        if ( this.score % 3 == 0 ) {
+            allEnemies.push( new Enemy( ( Math.floor(Math.random() * 4) * 83 ) + 60 ) )
+        }                
     }
 
     // Player collected a gem;
@@ -246,11 +251,7 @@
     GameBoard.prototype.goal = function() {
         this.totSafeCross += 1
         this.score += this.valSafeCross;
-        this.animateCss( "tada", 1 );
-
-        if ( this.score % 3 == 0 ) {
-            allEnemies.push( new Enemy( ( Math.floor(Math.random() * 4) * 83 ) + 60 ) )
-        }        
+        this.animateCss( "tada", 1 );   
     }
 
     // Player killed 
