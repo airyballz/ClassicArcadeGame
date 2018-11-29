@@ -181,7 +181,7 @@
     var GameBoard = function()
     {
         // scoring values
-        this.valGem = 3;
+        this.valGem = 1;
         this.valSafeCross = 1;
 
         // scoring totals
@@ -259,7 +259,7 @@
 
     // Increase enemy count when score is a multiple of 3
     GameBoard.prototype.increaseDiff = function() {
-        if ( this.score % 3 == 0 && this.score > 0 ) {
+        if ( this.score % 7 == 0 && this.score > 0 ) {
             allEnemies.push( new Enemy( ( Math.floor(Math.random() * 4) * 83 ) + 60 ) )
         }   
     }
